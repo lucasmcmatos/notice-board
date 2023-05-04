@@ -4,6 +4,7 @@ module.exports = {
         {id:"kvnasln",
         title: "Teste do Mural",
         description: "Descrição teste"},
+
     ],
     
     getAll(){
@@ -14,8 +15,14 @@ module.exports = {
         this.posts.push({"id":generateId() , title , description})
     },
 
-    deletePost(){
-        this.posts.pop()
+    deletePost(id){
+
+        for (i in this.posts){
+            if(this.posts[i].id == id){
+                console.log(this.posts.splice(i , 1))
+            }
+        }
+        
     }
 
 }

@@ -8,7 +8,7 @@ router.get("/all", (req , res)=>{
 });
 
 router.post("/new", bodyParser.json() ,(req , res)=>{
-
+    
     let title = req.body.title;
     let description = req.body.description;
 
@@ -18,10 +18,13 @@ router.post("/new", bodyParser.json() ,(req , res)=>{
 
 });
 
-router.delete("/deleteLast", (req, res)=>{
-    
-    posts.deletePost();
-    res.json(JSON.stringify(posts.getAll()));
+router.delete("/delete", bodyParser.json() , (req, res)=>{
+
+    let id1 = req.body.id
+
+    posts.deletePost(id1);
+
+    res.send("Post removido!");
     
 })
 
